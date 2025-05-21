@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+body {
+  color: #242424;
+}
+
+:root {
+  font-family: "14 Segment LED Regular", monospace;
+  line-height: 0.65;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "14 Segment LED Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("14 Segment LED Regular"),
+    url("/fonts/14 Segment LED Regular.woff") format("woff");
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
