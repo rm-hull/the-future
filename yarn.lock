@@ -2788,7 +2788,7 @@ __metadata:
     globals: "npm:^16.2.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
-    tailwindcss: "npm:^4.1.7"
+    tailwindcss: "npm:^4.1.10"
     typescript: "npm:~5.8.3"
     typescript-eslint: "npm:^8.32.1"
     vite: "npm:^6.3.5"
@@ -3333,10 +3333,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.1.7, tailwindcss@npm:^4.1.7":
+"tailwindcss@npm:4.1.7":
   version: 4.1.7
   resolution: "tailwindcss@npm:4.1.7"
   checksum: 10/c229ed1e0cfe83b431581e462e18175ee0c0d75344710cd844cbcab28df118270695a2cd545868e6013ef2e5f4c4b619fb84cd3b5e21f80b8908d3ac74f67a5d
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:^4.1.10":
+  version: 4.1.10
+  resolution: "tailwindcss@npm:4.1.10"
+  checksum: 10/699cfeacced1d3a3f17f8525ac6fe3246fb35d18c29a6814eebc039b768121d0c05311aaa8eb09b7c695e6667085a6a7ee023cd577a3386aef8c5891d6f785cb
   languageName: node
   linkType: hard
 
