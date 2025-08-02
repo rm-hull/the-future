@@ -1,10 +1,16 @@
 import { useCallback, useEffect, useState } from "react";
 
-type CellGridProps = {
-  message: string;
+type Dimensions = {
+  columns: number;
+  rows: number;
 };
 
-export default function CellGrid({ message }: CellGridProps) {
+type CellGridProps = {
+  message: string;
+  onResize?: (dimensions: Dimensions) => void;
+};
+
+export default function CellGrid({ message, onResize }: CellGridProps) {
   const [dimensions, setDimensions] = useState({
     columns: 0,
     rows: 0,
@@ -18,6 +24,7 @@ export default function CellGrid({ message }: CellGridProps) {
     const rows = Math.ceil(window.innerHeight / dimensions.cellHeight);
 
     setDimensions((prev) => ({ ...prev, columns, rows }));
+    onResize?.({ columns, rows });
   }, [dimensions.cellHeight, dimensions.cellWidth]);
 
   // Calculate how many cells we need based on window size

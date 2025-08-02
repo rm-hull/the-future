@@ -1,7 +1,55 @@
 import Typer from "./Typer";
+import dedent from "dedent";
 
 function App() {
-  return <Typer message="Welcome to the future" />;
+  return (
+    <Typer
+      message={dedent`
+        Welcome to the future
+        this is how things are now
+        
+        once upon a time, there was a terminal that 
+        could display text in a grid format, allowing
+        users to see their input in a structured way.
+
+        It was a simple terminal, but it had a lot of 
+        
+        
+        .... potential
+        
+        
+        
+        
+        Now, it has evolved into something more. Something that can display text in a way that is both functional and beautiful. A terminal that can handle complex input and output, while still being easy to use and understand. 
+        
+
+
+        This is the future, and it is here to stay.
+        
+
+
+
+
+
+
+
+
+        The future is bright, and the possibilities are endless.
+        
+  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        ok.`}
+    />
+  );
 }
 
 export default App;

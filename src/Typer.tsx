@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CellGrid from "./CellGrid";
+import CharTerminal from "./CharTerminal";
 
 type TyperProps = {
   message: string;
@@ -23,7 +23,7 @@ const Typer: React.FC<TyperProps> = ({ message, typingInterval = 200 }) => {
     return () => clearInterval(intervalId);
   }, [message, typingInterval, setTypedMessage]);
 
-  return <CellGrid message={typedMessage} />;
+  return <CharTerminal text={typedMessage} />;
 };
 
 export default Typer;
