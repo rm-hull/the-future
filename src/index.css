@@ -5,8 +5,8 @@ body {
 }
 
 :root {
-  font-family: "14 Segment LED Regular", monospace;
-  line-height: 0.65;
+  font-family: "vt220", monospace;
+  line-height: 0.85;
   font-weight: 400;
 
   color-scheme: dark;
@@ -18,11 +18,8 @@ body {
 }
 
 @font-face {
-  font-family: "14 Segment LED Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: local("14 Segment LED Regular"),
-    url("/fonts/14 Segment LED Regular.woff") format("woff");
+  font-family: "vt220";
+  src: url("/fonts/Glass_TTY_VT220.woff") format("woff");
 }
 
 body {

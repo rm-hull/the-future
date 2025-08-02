@@ -1,4 +1,5 @@
 import Typer from "./Typer";
+import { downloadModel } from "./llm";
 import message from "./ode_to_robert.txt?raw";
 import { delay } from "./util";
 
@@ -21,18 +22,10 @@ function letterGenerator(message: string) {
   };
 }
 
-function loadingPleaseWait() {
+function clear(ms: number) {
   return async function* (): AsyncGenerator<string> {
     yield "Please wait...\n";
-    await delay(1500);
-
-    for (let i = 0; i < 100; i++) {
-      yield `\rDownloading - ${i + 1}%`;
-      await delay(70);
-    }
-
-    yield "\n\nDone!\n\n";
-    await delay(500);
+    await delay(ms);
     yield "\x1b[2J"; // ANSI Clear screen
   };
 }
@@ -50,7 +43,11 @@ function seq(...generatorFactories: Array<() => AsyncGenerator<string>>) {
 function App() {
   return (
     <Typer
-      generatorFactory={seq(loadingPleaseWait(), letterGenerator(message))}
+      generatorFactory={seq(
+        downloadModel("Llama-3.2-1B-Instruct-q4f16_1-MLC"),
+        clear(5000),
+        letterGenerator(message)
+      )}
     />
   );
 }

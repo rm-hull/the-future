@@ -9,6 +9,10 @@ function isClearScreenSequence(cmd: string) {
   return cmd === "\x1b[2J";
 }
 
+function isClearLineSequence(cmd: string) {
+  return cmd === "\x1b[2K";
+}
+
 function processText(
   text: string,
   columns: number,
@@ -23,14 +27,20 @@ function processText(
   let cursor = prevCursor ? { ...prevCursor } : { row: 0, col: 0 };
 
   for (let i = 0; i < text.length; i++) {
-    // Detect ESC [ 2 J (clear screen)
-
     if (isClearScreenSequence(text.substring(i, i + 4))) {
       buffer = Array.from({ length: rows }, () => Array(columns).fill(" "));
       cursor = { row: 0, col: 0 };
-      i += 3; // Skip the sequence
+      i += 3;
       continue;
     }
+
+    if (isClearLineSequence(text.substring(i, i + 4))) {
+      buffer[cursor.row] = Array(columns).fill(" ");
+      cursor.col = 0;
+      i += 3;
+      continue;
+    }
+
     const char = text[i];
     if (char === "\n") {
       cursor.row++;

@@ -743,6 +743,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mlc-ai/web-llm@npm:^0.2.79":
+  version: 0.2.79
+  resolution: "@mlc-ai/web-llm@npm:0.2.79"
+  dependencies:
+    loglevel: "npm:^1.9.1"
+  checksum: 10/133a54b2efaa2d6bf2cb6773fbf1bdda07d7a1ba6c30d756ee2e93fedae1b4244c0d93c273d6a69b68b4addec3141c8ae3bc92e00a9d49875f76d89fc24cd7a4
+  languageName: node
+  linkType: hard
+
 "@napi-rs/wasm-runtime@npm:^0.2.11":
   version: 0.2.11
   resolution: "@napi-rs/wasm-runtime@npm:0.2.11"
@@ -2805,6 +2814,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loglevel@npm:^1.9.1":
+  version: 1.9.2
+  resolution: "loglevel@npm:1.9.2"
+  checksum: 10/6153d8db308323f7ee20130bc40309e7a976c30a10379d8666b596d9c6441965c3e074c8d7ee3347fe5cfc059c0375b6f3e8a10b93d5b813cc5547f5aa412a29
+  languageName: node
+  linkType: hard
+
 "loupe@npm:^3.1.0":
   version: 3.1.3
   resolution: "loupe@npm:3.1.3"
@@ -3015,6 +3031,7 @@ __metadata:
   resolution: "multimeter@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.32.0"
+    "@mlc-ai/web-llm": "npm:^0.2.79"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@types/node": "npm:^24.1.0"
     "@types/react": "npm:^19.1.9"
