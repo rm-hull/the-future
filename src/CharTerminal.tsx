@@ -5,6 +5,10 @@ export type CharTerminalProps = {
   text: string;
 };
 
+function isClearScreenSequence(cmd: string) {
+  return cmd === "\x1b[2J";
+}
+
 function processText(
   text: string,
   columns: number,
@@ -18,7 +22,16 @@ function processText(
     : Array.from({ length: rows }, () => Array(columns).fill(" "));
   let cursor = prevCursor ? { ...prevCursor } : { row: 0, col: 0 };
 
-  for (const char of text) {
+  for (let i = 0; i < text.length; i++) {
+    // Detect ESC [ 2 J (clear screen)
+
+    if (isClearScreenSequence(text.substring(i, i + 4))) {
+      buffer = Array.from({ length: rows }, () => Array(columns).fill(" "));
+      cursor = { row: 0, col: 0 };
+      i += 3; // Skip the sequence
+      continue;
+    }
+    const char = text[i];
     if (char === "\n") {
       cursor.row++;
       cursor.col = 0;

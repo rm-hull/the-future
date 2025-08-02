@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CharTerminal from "./CharTerminal";
 
 type TyperProps = {
-  message: string;
-  typingInterval?: number;
+  generatorFactory: () => AsyncGenerator<string>;
 };
 
-const Typer: React.FC<TyperProps> = ({ message, typingInterval = 200 }) => {
+export default function Typer({ generatorFactory }: TyperProps) {
   const [typedMessage, setTypedMessage] = useState("");
 
   useEffect(() => {
-    let i = 0;
-    const intervalId = setInterval(() => {
-      if (i < message.length) {
-        setTypedMessage(() => message.substring(0, i + 1));
-        i++;
-      } else {
-        clearInterval(intervalId);
+    let cancelled = false;
+    setTypedMessage(""); // Reset on generator change
+    const generator = generatorFactory();
+    async function run() {
+      let acc = "";
+      for await (const value of generator) {
+        if (cancelled) break;
+        acc += value;
+        setTypedMessage(acc);
       }
-    }, typingInterval);
+    }
+    run();
 
-    return () => clearInterval(intervalId);
-  }, [message, typingInterval, setTypedMessage]);
+    return () => {
+      cancelled = true;
+    };
+  }, [generatorFactory]);
 
   return <CharTerminal text={typedMessage} />;
-};
-
-export default Typer;
+}
