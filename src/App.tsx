@@ -2,15 +2,15 @@ import Typer from "./Typer";
 import message from "./ode_to_robert.txt?raw";
 import { delay } from "./util";
 
-function wordGenerator(message: string) {
-  return async function* (): AsyncGenerator<string> {
-    const words = message.split(" ");
-    for (const word of words) {
-      await delay(200);
-      yield word + " ";
-    }
-  };
-}
+// function wordGenerator(message: string) {
+//   return async function* (): AsyncGenerator<string> {
+//     const words = message.split(" ");
+//     for (const word of words) {
+//       await delay(200);
+//       yield word + " ";
+//     }
+//   };
+// }
 
 function letterGenerator(message: string) {
   return async function* (): AsyncGenerator<string> {
