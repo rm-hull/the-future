@@ -27,8 +27,8 @@
 
 
 
-The preceding text was entirely generated in your browser using a gen-AI model...
-[an experiment in web and LLM technology]
+The preceding text was entirely generated in your browser using an LLM model...
+[an experiment in web-gpu and AI-slop]
 
 
 
