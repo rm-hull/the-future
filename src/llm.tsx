@@ -6,9 +6,9 @@ async function getLibrary() {
   return { CreateMLCEngine };
 }
 
+let model: MLCEngine | null = null;
 let clipMessage =
   " It can take a while when we first visit this page to populate the cache. Later refreshes will become faster.";
-let model: MLCEngine | null = null;
 
 export function downloadModel(modelName: string) {
   return async function* (): AsyncGenerator<string> {
@@ -38,5 +38,29 @@ export function downloadModel(modelName: string) {
 
     await downloadPromise;
     yield `\n${modelName}: downloaded successfully!\n`;
+  };
+}
+
+export function systemPrompt(instructions: string, prompt: string) {
+  return async function* (): AsyncGenerator<string> {
+    if (!model) {
+      throw new Error("Model not initialized");
+    }
+
+    const response = await model.chat.completions.create({
+      messages: [
+        { role: "system", content: instructions },
+        { role: "user", content: prompt },
+      ],
+      stream: true,
+    });
+
+    for await (const chunk of response) {
+      if (chunk.choices.length > 0) {
+        const content = chunk.choices[0].delta.content || "";
+        await delay(200);
+        yield content;
+      }
+    }
   };
 }

@@ -1,5 +1,4 @@
-Welcome to the future
-this is how things are now
+
 
 once upon a time, there was a terminal that 
 could display text in a grid format, allowing

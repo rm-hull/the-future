@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  CSSProperties,
+} from "react";
 
 type Dimensions = {
   columns: number;
@@ -10,7 +16,7 @@ type CellGridProps = {
   onResize?: (dimensions: Dimensions) => void;
 };
 
-const containerStyle = {
+const containerStyle: CSSProperties = {
   fontSize: 36,
   background: "#242424",
   width: "100%",
@@ -42,7 +48,7 @@ export default function CellGrid({ message, onResize }: CellGridProps) {
     return () => window.removeEventListener("resize", updateDimensions);
   }, [updateDimensions]);
 
-  const rowStyle = useMemo(
+  const rowStyle: CSSProperties = useMemo(
     () => ({
       whiteSpace: "nowrap", // Keep cells in a row
       color: "#FFAA00",
