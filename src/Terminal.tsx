@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CellGrid from "./CellGrid";
 
-export type CharTerminalProps = {
+export type TerminalProps = {
   text: string;
 };
 
@@ -68,7 +68,7 @@ function processText(
   return { buffer, cursor };
 }
 
-export default function CharTerminal({ text }: CharTerminalProps) {
+export default function Terminal({ text }: TerminalProps) {
   const [dimensions, setDimensions] = useState({ columns: 0, rows: 0 });
   const [buffer, setBuffer] = useState<string[][]>([]);
   const [cursor, setCursor] = useState<{ row: number; col: number }>({

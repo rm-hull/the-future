@@ -31,7 +31,7 @@ export function downloadModel(modelName: string) {
     // Poll for progress updates until done
     while (!done || progressQueue.length > 0) {
       while (progressQueue.length > 0) {
-        yield `\r\x1b[2K${progressQueue.shift()!}`;
+        yield `\x1b[2J${progressQueue.shift()!}`;
       }
       if (!done) await delay(50);
     }

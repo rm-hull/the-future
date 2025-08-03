@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import CharTerminal from "./CharTerminal";
+import Terminal from "./Terminal";
 
 type TyperProps = {
   generatorFactory: () => AsyncGenerator<string>;
@@ -27,5 +27,5 @@ export default function Typer({ generatorFactory }: TyperProps) {
     };
   }, [generatorFactory]);
 
-  return <CharTerminal text={typedMessage} />;
+  return <Terminal text={typedMessage} />;
 }
