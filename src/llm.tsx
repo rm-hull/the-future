@@ -12,32 +12,37 @@ let clipMessage =
 
 export function downloadModel(modelName: string) {
   return async function* (): AsyncGenerator<string> {
-    yield `Initializing MLC web-llm`;
+    try {
+      yield `Initializing MLC web-llm`;
 
-    const progressQueue: string[] = [];
-    const engineOpts: MLCEngineConfig = {
-      initProgressCallback: (progress) => {
-        progressQueue.push(progress.text.replace(clipMessage, ""));
-      },
-    };
-    const { CreateMLCEngine } = await getLibrary();
+      const progressQueue: string[] = [];
+      const engineOpts: MLCEngineConfig = {
+        initProgressCallback: (progress) => {
+          progressQueue.push(progress.text.replace(clipMessage, ""));
+        },
+      };
+      const { CreateMLCEngine } = await getLibrary();
 
-    let done = false;
-    const downloadPromise = (async () => {
-      model = await CreateMLCEngine(modelName, engineOpts);
-      done = true;
-    })();
+      let done = false;
+      const downloadPromise = (async () => {
+        model = await CreateMLCEngine(modelName, engineOpts);
+        done = true;
+      })();
 
-    // Poll for progress updates until done
-    while (!done || progressQueue.length > 0) {
-      while (progressQueue.length > 0) {
-        yield `\x1b[2J${progressQueue.shift()!}`;
+      // Poll for progress updates until done
+      while (!done || progressQueue.length > 0) {
+        while (progressQueue.length > 0) {
+          yield `\x1b[2J${progressQueue.shift()!}`;
+        }
+        if (!done) await delay(50);
       }
-      if (!done) await delay(50);
-    }
 
-    await downloadPromise;
-    yield `\n${modelName}: downloaded successfully!\n`;
+      await downloadPromise;
+      yield `\n${modelName}: downloaded successfully!\n`;
+    } catch (error) {
+      yield `Error initialing: ${modelName}\n`;
+      yield `${error instanceof Error ? error.message : String(error)}`;
+    }
   };
 }
 
