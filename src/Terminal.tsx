@@ -102,5 +102,5 @@ export default function Terminal({ text }: TerminalProps) {
     ? buffer.map((row) => row.join("")).join("")
     : "";
 
-  return <CellGrid message={message} onResize={setDimensions} />;
+  return <CellGrid message={message} onResize={setDimensions} cursor={cursor} />;
 }

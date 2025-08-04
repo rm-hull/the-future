@@ -13,7 +13,7 @@ export function wordGenerator(message: string) {
 export function letterGenerator(message: string) {
   return async function* (): AsyncGenerator<string> {
     for (const ch of message.split("")) {
-      await delay(150);
+      await delay(120);
       yield ch;
     }
   };
@@ -30,6 +30,17 @@ export function clear(ms: number) {
     yield "\nPlease wait...\n";
     await delay(ms);
     yield "\x1b[2J"; // ANSI Clear screen
+  };
+}
+
+export function reflow(generatorFactory: () => AsyncGenerator<string>) {
+  return async function* (): AsyncGenerator<string> {
+    for await (const chunk of generatorFactory()) {
+      for (const ch of chunk.split("")) {
+        await delay(20)
+        yield ch;
+      }
+    }
   };
 }
 
