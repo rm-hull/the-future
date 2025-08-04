@@ -27,7 +27,7 @@
 
 
 
-The preceding text was entirely generated in your browser using an LLM model...
+The preceding text was entirely generated in your browser using a large language model...
 [an experiment in web-gpu and AI-slop]
 
 
