@@ -10,10 +10,19 @@ let model: MLCEngine | null = null;
 let clipMessage =
   " It can take a while when we first visit this page to populate the cache. Later refreshes will become faster.";
 
+export function isWebGPUAvailable(): boolean {
+  return typeof navigator !== "undefined" && !!(navigator as any).gpu;
+}
+
 export function downloadModel(modelName: string) {
   return async function* (): AsyncGenerator<string> {
     try {
       yield `Initializing MLC web-llm`;
+
+      if (!isWebGPUAvailable()) {
+        yield `\n\nWebGPU is not available.\nPlease ensure your browser supports WebGPU.`;
+        return;
+      }
 
       const progressQueue: string[] = [];
       const engineOpts: MLCEngineConfig = {
