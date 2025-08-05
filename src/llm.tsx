@@ -20,8 +20,7 @@ export function downloadModel(modelName: string) {
       yield `Initializing MLC web-llm`;
 
       if (!isWebGPUAvailable()) {
-        yield `\n\nWebGPU is not available.\nPlease ensure your browser supports WebGPU.`;
-        return;
+        throw new Error("WebGPU is not available");
       }
 
       const progressQueue: string[] = [];
@@ -49,8 +48,9 @@ export function downloadModel(modelName: string) {
       await downloadPromise;
       yield `\n${modelName}: downloaded successfully!\n`;
     } catch (error) {
-      yield `Error initialing: ${modelName}\n`;
-      yield `${error instanceof Error ? error.message : String(error)}`;
+      yield `\x1b[2JError initializing: ${modelName}`;
+      yield `\n${error instanceof Error ? error.message : String(error)}`;
+      throw error;
     }
   };
 }
