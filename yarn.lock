@@ -1400,10 +1400,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/w3c-web-usb@npm:^1.0.10":
-  version: 1.0.10
-  resolution: "@types/w3c-web-usb@npm:1.0.10"
-  checksum: 10/6ac6786a0788f0846a48b103ab06ca5fde5eb95674217b522420a2f6157bee3e181a961c1b7011940f497c55f4f5cc46129657d881fdd8112b48764089679ad6
+"@types/w3c-web-usb@npm:^1.0.12":
+  version: 1.0.12
+  resolution: "@types/w3c-web-usb@npm:1.0.12"
+  checksum: 10/6cdbdf48aac8dac0a659fa772617490c47fec88e8296e2df2f4dd8c0c66889e8313c05e4469489870f1726bdf0a74dda4ae6b401c08a574c46eecad6ba653568
   languageName: node
   linkType: hard
 
@@ -3211,7 +3211,7 @@ __metadata:
     "@types/node": "npm:^24.3.1"
     "@types/react": "npm:^19.1.12"
     "@types/react-dom": "npm:^19.1.9"
-    "@types/w3c-web-usb": "npm:^1.0.10"
+    "@types/w3c-web-usb": "npm:^1.0.12"
     "@vitejs/plugin-react": "npm:^5.0.2"
     "@vitest/coverage-v8": "npm:3.2.4"
     eslint: "npm:^9.35.0"
