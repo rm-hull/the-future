@@ -1,0 +1,3 @@
+- https://blog.adafruit.com/2025/09/26/ai-model-trapped-in-raspberry-pi-piday-raspberrypi/
+- https://news.ycombinator.com/item?id=45396624
+- https://www.chrisfenton.com/meet-grasso-the-yard-robot/
