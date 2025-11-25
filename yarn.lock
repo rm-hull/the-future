@@ -851,12 +851,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mlc-ai/web-llm@npm:^0.2.79":
-  version: 0.2.79
-  resolution: "@mlc-ai/web-llm@npm:0.2.79"
+"@mlc-ai/web-llm@npm:^0.2.80":
+  version: 0.2.80
+  resolution: "@mlc-ai/web-llm@npm:0.2.80"
   dependencies:
     loglevel: "npm:^1.9.1"
-  checksum: 10/133a54b2efaa2d6bf2cb6773fbf1bdda07d7a1ba6c30d756ee2e93fedae1b4244c0d93c273d6a69b68b4addec3141c8ae3bc92e00a9d49875f76d89fc24cd7a4
+  checksum: 10/f377faf8c4ff91f4bd016e154a863461d434b1a279ab14ae5a0e1c84e84c4f291841dada81e95039b696c522fc01c2be096b4ef074f5c46d33397f1d8ef0c3d2
   languageName: node
   linkType: hard
 
@@ -3026,7 +3026,7 @@ __metadata:
   resolution: "multimeter@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.1"
-    "@mlc-ai/web-llm": "npm:^0.2.79"
+    "@mlc-ai/web-llm": "npm:^0.2.80"
     "@tailwindcss/vite": "npm:^4.1.17"
     "@types/node": "npm:^24.10.1"
     "@types/react": "npm:^19.2.7"
