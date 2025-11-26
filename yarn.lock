@@ -3009,32 +3009,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multimeter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "multimeter@workspace:."
-  dependencies:
-    "@eslint/js": "npm:^9.39.1"
-    "@mlc-ai/web-llm": "npm:^0.2.80"
-    "@tailwindcss/vite": "npm:^4.1.17"
-    "@types/node": "npm:^24.10.1"
-    "@types/react": "npm:^19.2.7"
-    "@types/react-dom": "npm:^19.2.3"
-    "@vitejs/plugin-react": "npm:^5.1.1"
-    "@vitest/coverage-v8": "npm:4.0.14"
-    eslint: "npm:^9.39.1"
-    eslint-plugin-react-hooks: "npm:^7.0.1"
-    eslint-plugin-react-refresh: "npm:^0.4.24"
-    globals: "npm:^16.5.0"
-    react: "npm:^19.2.0"
-    react-dom: "npm:^19.2.0"
-    tailwindcss: "npm:^4.1.17"
-    typescript: "npm:~5.9.3"
-    typescript-eslint: "npm:^8.48.0"
-    vite: "npm:^7.2.4"
-    vitest: "npm:^4.0.14"
-  languageName: unknown
-  linkType: soft
-
 "nanoid@npm:^3.3.11":
   version: 3.3.11
   resolution: "nanoid@npm:3.3.11"
@@ -3576,6 +3550,32 @@ __metadata:
   checksum: 10/12a2a4fc6dee23e07cc47f1aeb3a14a1afd3f16397e1350036a8f4cdfee8dcac7ef5978337a4e7b2ac2c27a9a6d46388fc2088ea7c80cb6878c814b1425f8ecf
   languageName: node
   linkType: hard
+
+"the-future@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "the-future@workspace:."
+  dependencies:
+    "@eslint/js": "npm:^9.39.1"
+    "@mlc-ai/web-llm": "npm:^0.2.80"
+    "@tailwindcss/vite": "npm:^4.1.17"
+    "@types/node": "npm:^24.10.1"
+    "@types/react": "npm:^19.2.7"
+    "@types/react-dom": "npm:^19.2.3"
+    "@vitejs/plugin-react": "npm:^5.1.1"
+    "@vitest/coverage-v8": "npm:4.0.14"
+    eslint: "npm:^9.39.1"
+    eslint-plugin-react-hooks: "npm:^7.0.1"
+    eslint-plugin-react-refresh: "npm:^0.4.24"
+    globals: "npm:^16.5.0"
+    react: "npm:^19.2.0"
+    react-dom: "npm:^19.2.0"
+    tailwindcss: "npm:^4.1.17"
+    typescript: "npm:~5.9.3"
+    typescript-eslint: "npm:^8.48.0"
+    vite: "npm:^7.2.4"
+    vitest: "npm:^4.0.14"
+  languageName: unknown
+  linkType: soft
 
 "tinybench@npm:^2.9.0":
   version: 2.9.0
