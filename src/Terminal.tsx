@@ -92,7 +92,7 @@ export default function Terminal({ text }: TerminalProps) {
     setBuffer(result.buffer);
     setCursor(result.cursor);
     prevTextRef.current = text;
-  }, [text, dimensions, buffer, cursor]);
+  }, [text, dimensions]);
 
   // Flatten buffer to string for CellGrid
   const message = buffer.length ? buffer.map((row) => row.join("")).join("") : "";
