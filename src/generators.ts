@@ -71,7 +71,7 @@ export function think(generatorFactory: () => AsyncGenerator<string>) {
         if (!yieldedThinking) {
           yield `Thinking...`;
           yieldedThinking = true;
-        } else if (count % 20 === 0) {
+        } else if (count % 50 === 0) {
           yield "."
         }
       } else {
@@ -79,6 +79,17 @@ export function think(generatorFactory: () => AsyncGenerator<string>) {
       }
     }
   };
+}
+
+export function sleep(ms: number) {
+  return function(generatorFactory: () => AsyncGenerator<string>) {
+  return async function* (): AsyncGenerator<string> {
+    for await (const chunk of generatorFactory()) {
+      yield chunk;
+      await delay(ms)
+    }
+  }
+}
 }
 
 export function seq(...generatorFactories: Array<() => AsyncGenerator<string>>) {
