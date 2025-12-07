@@ -9,7 +9,7 @@ function App() {
   return (
     <Typer
       generatorFactory={seq(
-        downloadModel("Llama-3.2-1B-Instruct-q4f16_1-MLC"),
+        downloadModel("Llama-3.2-3B-Instruct-q4f32_1-MLC"),
         clear(5000),
         reflow(systemPrompt(instructions, theFuture)),
         waitFor(10000),
