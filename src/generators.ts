@@ -53,7 +53,7 @@ export function think(generatorFactory: () => AsyncGenerator<string>) {
 
     for await (const chunk of generatorFactory()) {
       const lower = chunk.trim().toLowerCase();
-      
+
       if (lower === "<think>") {
         thinking = true;
         yieldedThinking = false;
@@ -72,7 +72,7 @@ export function think(generatorFactory: () => AsyncGenerator<string>) {
           yield `Thinking...`;
           yieldedThinking = true;
         } else if (count % 50 === 0) {
-          yield "."
+          yield ".";
         }
       } else {
         yield chunk;
@@ -82,14 +82,14 @@ export function think(generatorFactory: () => AsyncGenerator<string>) {
 }
 
 export function sleep(ms: number) {
-  return function(generatorFactory: () => AsyncGenerator<string>) {
-  return async function* (): AsyncGenerator<string> {
-    for await (const chunk of generatorFactory()) {
-      yield chunk;
-      await delay(ms)
-    }
-  }
-}
+  return function (generatorFactory: () => AsyncGenerator<string>) {
+    return async function* (): AsyncGenerator<string> {
+      for await (const chunk of generatorFactory()) {
+        yield chunk;
+        await delay(ms);
+      }
+    };
+  };
 }
 
 export function seq(...generatorFactories: Array<() => AsyncGenerator<string>>) {
@@ -100,4 +100,8 @@ export function seq(...generatorFactories: Array<() => AsyncGenerator<string>>) 
       }
     }
   };
+}
+
+export function compose<T>(...fns: Array<(arg: T) => T>) {
+  return (arg: T): T => fns.reduceRight((acc, fn) => fn(acc), arg);
 }
