@@ -74,9 +74,7 @@ export function systemPrompt(instructions: string, prompt: string) {
 
     for await (const chunk of response) {
       if (chunk.choices.length > 0) {
-        const content = chunk.choices[0].delta.content || "";
-        await delay(200);
-        yield content;
+        yield chunk.choices[0].delta.content || "";
       }
     }
   };
