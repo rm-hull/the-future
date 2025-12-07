@@ -33,8 +33,11 @@ export function downloadModel(modelName: string) {
 
       let done = false;
       const downloadPromise = (async () => {
-        model = await CreateMLCEngine(modelName, engineOpts);
-        done = true;
+        try {
+          model = await CreateMLCEngine(modelName, engineOpts);
+        } finally {
+          done = true;
+        }
       })();
 
       // Poll for progress updates until done
