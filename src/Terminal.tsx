@@ -86,10 +86,7 @@ export default function Terminal({ text }: TerminalProps) {
       newText,
       dimensions.columns,
       dimensions.rows,
-      buffer.length === dimensions.rows &&
-        buffer[0]?.length === dimensions.columns
-        ? buffer
-        : undefined,
+      buffer.length === dimensions.rows && buffer[0]?.length === dimensions.columns ? buffer : undefined,
       cursor
     );
     setBuffer(result.buffer);
@@ -98,11 +95,7 @@ export default function Terminal({ text }: TerminalProps) {
   }, [text, dimensions, buffer, cursor]);
 
   // Flatten buffer to string for CellGrid
-  const message = buffer.length
-    ? buffer.map((row) => row.join("")).join("")
-    : "";
+  const message = buffer.length ? buffer.map((row) => row.join("")).join("") : "";
 
-  return (
-    <CellGrid message={message} onResize={setDimensions} cursor={cursor} />
-  );
+  return <CellGrid message={message} onResize={setDimensions} cursor={cursor} />;
 }

@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  CSSProperties,
-} from "react";
+import { useCallback, useEffect, useMemo, useState, CSSProperties } from "react";
 import { useCharacterMetrics } from "./hooks/useCharacterMetrics";
 
 type Dimensions = {
@@ -44,12 +38,8 @@ export default function CellGrid({ message, onResize, cursor }: CellGridProps) {
       console.warn("Character metrics not available yet");
       return;
     }
-    const columns = Math.trunc(
-      window.innerWidth / (charMetrics.width * WIDTH_RATIO)
-    );
-    const rows = Math.trunc(
-      window.innerHeight / (charMetrics.fontHeight * HEIGHT_RATIO)
-    );
+    const columns = Math.trunc(window.innerWidth / (charMetrics.width * WIDTH_RATIO));
+    const rows = Math.trunc(window.innerHeight / (charMetrics.fontHeight * HEIGHT_RATIO));
 
     setDimensions((prev) => ({ ...prev, columns, rows }));
     onResize?.({ columns, rows });
@@ -77,10 +67,7 @@ export default function CellGrid({ message, onResize, cursor }: CellGridProps) {
     <div style={containerStyle}>
       {Array.from({ length: dimensions.rows }, (_, rowIndex) => (
         <div key={rowIndex} style={rowStyle}>
-          {message.slice(
-            rowIndex * dimensions.columns,
-            (rowIndex + 1) * dimensions.columns
-          )}
+          {message.slice(rowIndex * dimensions.columns, (rowIndex + 1) * dimensions.columns)}
         </div>
       ))}
       {cursor && (

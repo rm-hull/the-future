@@ -45,9 +45,7 @@ export function reflow(generatorFactory: () => AsyncGenerator<string>) {
   };
 }
 
-export function seq(
-  ...generatorFactories: Array<() => AsyncGenerator<string>>
-) {
+export function seq(...generatorFactories: Array<() => AsyncGenerator<string>>) {
   return async function* (): AsyncGenerator<string> {
     for (const factory of generatorFactories) {
       for await (const chunk of factory()) {

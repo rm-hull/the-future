@@ -10,10 +10,7 @@ type CharacterMetrics = {
   error?: string;
 };
 
-export function useCharacterMetrics(
-  char: string,
-  font: string
-): CharacterMetrics {
+export function useCharacterMetrics(char: string, font: string): CharacterMetrics {
   const [metrics, setMetrics] = useState<CharacterMetrics>({
     width: 0,
     height: 0,
@@ -45,17 +42,11 @@ export function useCharacterMetrics(
       width: textMetrics.width,
       ascent: textMetrics.actualBoundingBoxAscent || 0,
       descent: textMetrics.actualBoundingBoxDescent || 0,
-      actualHeight:
-        (textMetrics.actualBoundingBoxAscent || 0) +
-        (textMetrics.actualBoundingBoxDescent || 0),
-      fontHeight:
-        (textMetrics.fontBoundingBoxAscent || 0) +
-        (textMetrics.fontBoundingBoxDescent || 0),
+      actualHeight: (textMetrics.actualBoundingBoxAscent || 0) + (textMetrics.actualBoundingBoxDescent || 0),
+      fontHeight: (textMetrics.fontBoundingBoxAscent || 0) + (textMetrics.fontBoundingBoxDescent || 0),
       height:
-        textMetrics.actualBoundingBoxAscent +
-          textMetrics.actualBoundingBoxDescent ||
-        textMetrics.fontBoundingBoxAscent +
-          textMetrics.fontBoundingBoxDescent ||
+        textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent ||
+        textMetrics.fontBoundingBoxAscent + textMetrics.fontBoundingBoxDescent ||
         parseInt(font), // Parse font size as last resort
     });
   }, [char, font]);

@@ -14,7 +14,13 @@ export default defineConfig(() => {
     .trimEnd();
 
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react({ babel: { plugins: ["babel-plugin-react-compiler"] } }),
+      tailwindcss(),
+    ],
     base: "/the-future",
+    build: {
+      sourcemap: true,
+    },
   };
 });
