@@ -52,7 +52,7 @@ export function downloadModel(modelName: string) {
       yield `\n${modelName}: downloaded successfully!\n`;
     } catch (error) {
       yield `\x1b[2JError initializing: ${modelName}`;
-      yield `\n${error instanceof Error ? error.message : String(error)}`;
+      yield `\n\n${error instanceof Error ? error.message : String(error)}`;
       throw error;
     }
   };
