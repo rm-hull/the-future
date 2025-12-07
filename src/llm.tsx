@@ -7,7 +7,7 @@ async function getLibrary() {
 }
 
 let model: MLCEngine | null = null;
-let clipMessage =
+const clipMessage =
   " It can take a while when we first visit this page to populate the cache. Later refreshes will become faster.";
 
 export function isWebGPUAvailable(): boolean {

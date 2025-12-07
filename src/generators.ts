@@ -22,6 +22,7 @@ export function letterGenerator(message: string) {
 export function waitFor(ms: number) {
   return async function* (): AsyncGenerator<string> {
     await delay(ms);
+    yield "";
   };
 }
 
@@ -37,7 +38,7 @@ export function reflow(generatorFactory: () => AsyncGenerator<string>) {
   return async function* (): AsyncGenerator<string> {
     for await (const chunk of generatorFactory()) {
       for (const ch of chunk.split("")) {
-        await delay(20)
+        await delay(20);
         yield ch;
       }
     }
