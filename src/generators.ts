@@ -45,6 +45,42 @@ export function reflow(generatorFactory: () => AsyncGenerator<string>) {
   };
 }
 
+export function think(generatorFactory: () => AsyncGenerator<string>) {
+  return async function* (): AsyncGenerator<string> {
+    let thinking = false;
+    let yieldedThinking = false;
+    let count = 0;
+
+    for await (const chunk of generatorFactory()) {
+      const lower = chunk.trim().toLowerCase();
+      
+      if (lower === "<think>") {
+        thinking = true;
+        yieldedThinking = false;
+        continue;
+      }
+
+      if (lower === "</think>") {
+        thinking = false;
+        yieldedThinking = false;
+        continue;
+      }
+
+      if (thinking) {
+        count++;
+        if (!yieldedThinking) {
+          yield `Thinking...`;
+          yieldedThinking = true;
+        } else if (count % 20 === 0) {
+          yield "."
+        }
+      } else {
+        yield chunk;
+      }
+    }
+  };
+}
+
 export function seq(...generatorFactories: Array<() => AsyncGenerator<string>>) {
   return async function* (): AsyncGenerator<string> {
     for (const factory of generatorFactories) {
