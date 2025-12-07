@@ -28,10 +28,13 @@ export function useCharacterMetrics(
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
     if (!context) {
-      setMetrics((prev) => ({
-        ...prev,
-        error: "Failed to get canvas context",
-      }));
+      queueMicrotask(() => {
+        setMetrics((prev) => ({
+          ...prev,
+          error: "Failed to get canvas context",
+        }));
+      });
+
       return;
     }
     context.font = font;

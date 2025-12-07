@@ -53,11 +53,11 @@ export default function CellGrid({ message, onResize, cursor }: CellGridProps) {
 
     setDimensions((prev) => ({ ...prev, columns, rows }));
     onResize?.({ columns, rows });
-  }, [charMetrics.width, charMetrics.height]);
+  }, [charMetrics.width, charMetrics.height, charMetrics.fontHeight, onResize]);
 
   // Calculate how many cells we need based on window size
   useEffect(() => {
-    updateDimensions();
+    queueMicrotask(updateDimensions);
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, [updateDimensions]);
@@ -70,7 +70,7 @@ export default function CellGrid({ message, onResize, cursor }: CellGridProps) {
       width: `${dimensions.columns * charMetrics.width * WIDTH_RATIO}px`,
       height: `${charMetrics.fontHeight * HEIGHT_RATIO}px`,
     }),
-    [dimensions]
+    [dimensions.columns, charMetrics.width, charMetrics.fontHeight]
   );
 
   return (
