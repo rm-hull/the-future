@@ -16,7 +16,7 @@
   "dependencies": {
     "@mlc-ai/web-llm": "^0.2.80",
     "@tailwindcss/vite": "^4.1.17",
-    "react": "^19.2.1",
+    "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "tailwindcss": "^4.1.17"
   },
