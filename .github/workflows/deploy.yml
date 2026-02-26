@@ -29,14 +29,16 @@ jobs:
         run: |
           yarn install
 
-      # - name: Lint
-      #   run: yarn lint
+      - name: Lint
+        run: yarn lint
+        continue-on-error: true
 
       - name: Test
         run: yarn test:ci
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
+        continue-on-error: true
         with:
           file: coverage/clover.xml
 
