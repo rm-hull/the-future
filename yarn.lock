@@ -1025,9 +1025,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rolldown/plugin-babel@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@rolldown/plugin-babel@npm:0.2.1"
+"@rolldown/plugin-babel@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@rolldown/plugin-babel@npm:0.2.2"
   dependencies:
     picomatch: "npm:^4.0.3"
   peerDependencies:
@@ -1043,7 +1043,7 @@ __metadata:
       optional: true
     vite:
       optional: true
-  checksum: 10/1a51278fd0abb34a58dd3c10c118ee2a0c3415df931acedde9cb01142b97e6c5ad2d71207137406719a7c32cc60799572cee9cd6c7deca677f25addedd4c5bbd
+  checksum: 10/e1ead63b8dc081075a9eae003ccf802b0bc0017204715ddd181d36aeaf40814a9bf8466326c10c9534e1b5abda20188b1fd5d2b61312f525d2046ad599902e0f
   languageName: node
   linkType: hard
 
@@ -3556,7 +3556,7 @@ __metadata:
     "@babel/core": "npm:^7.29.0"
     "@eslint/js": "npm:^10.0.1"
     "@mlc-ai/web-llm": "npm:^0.2.82"
-    "@rolldown/plugin-babel": "npm:^0.2.1"
+    "@rolldown/plugin-babel": "npm:^0.2.2"
     "@tailwindcss/vite": "npm:^4.2.1"
     "@types/babel__core": "npm:^7.20.5"
     "@types/node": "npm:^25.5.0"
