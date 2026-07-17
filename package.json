@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "@mlc-ai/web-llm": "^0.2.84",
-    "@tailwindcss/vite": "^4.3.2",
+    "@tailwindcss/vite": "^4.3.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@babel/core": "^8.0.1",
