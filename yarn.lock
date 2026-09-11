@@ -930,12 +930,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mlc-ai/web-llm@npm:^0.2.84":
-  version: 0.2.84
-  resolution: "@mlc-ai/web-llm@npm:0.2.84"
+"@mlc-ai/web-llm@npm:^0.2.85":
+  version: 0.2.85
+  resolution: "@mlc-ai/web-llm@npm:0.2.85"
   dependencies:
     loglevel: "npm:^1.9.1"
-  checksum: 10/3c4f69f8f71c93c3a9d7bfb70f09e640f10dc25c88ccb79ecb5cef8ef7698baae696a77a1ede8567eb4c47aad97b3c1b0a40a4efb19550a9b54c1680d43271be
+  checksum: 10/291cc7a0fdf9e1251cd43bb97ecd59fb5bc64beaf606ed9413420159d39230b70de53ffdbfcee6448127366272f5d2800bdee15529cd7e64375958008e2f82ef
   languageName: node
   linkType: hard
 
@@ -3641,7 +3641,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^8.0.1"
     "@eslint/js": "npm:^10.0.1"
-    "@mlc-ai/web-llm": "npm:^0.2.84"
+    "@mlc-ai/web-llm": "npm:^0.2.85"
     "@rolldown/plugin-babel": "npm:^0.2.4"
     "@tailwindcss/vite": "npm:^4.3.3"
     "@types/babel__core": "npm:^7.20.5"
