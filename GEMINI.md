@@ -30,25 +30,25 @@ The application uses a pipeline pattern to feed text into the UI:
 
 ### Prerequisites
 *   Node.js
-*   Yarn (Package Manager, v4.12.0)
+*   pnpm (Package Manager, v10)
 *   **Browser with WebGPU support** (Chrome/Edge 113+, or other browsers with flags enabled).
 
 ### Commands
 ```bash
 # Install dependencies
-yarn install
+pnpm install
 
 # Start development server
-yarn dev
+pnpm dev
 
 # Build for production
-yarn build
+pnpm build
 
 # Run tests
-yarn test
+pnpm test
 
 # Lint code
-yarn lint
+pnpm lint
 ```
 
 ## Directory Structure Key Files

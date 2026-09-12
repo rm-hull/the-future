@@ -8,7 +8,7 @@ import unusedImports from "eslint-plugin-unused-imports";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default tseslint.config(
-  { ignores: ["dist", ".yarn", ".pnp*"] },
+  { ignores: ["dist", ".pnp*"] },
   {
     extends: [
       js.configs.recommended,
